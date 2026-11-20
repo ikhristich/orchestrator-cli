@@ -74,18 +74,18 @@ Orchestrator помогает работать над Git-проектами с 
 
 ## Скачать
 
-Текущая версия: **0.1.4**. Для установки нужен только один файл под вашу систему: готовое приложение, Node.js, зависимости и обязательные skills уже внутри.
+Текущая версия: **0.1.5**. Для установки нужен только один файл под вашу систему: готовое приложение, Node.js, зависимости и обязательные skills уже внутри.
 
 | Система | Установщик |
 |---|---|
-| macOS Apple Silicon | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-darwin-arm64.command) |
-| macOS Intel | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-darwin-x64.command) |
-| Linux x64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-linux-x64.run) |
-| Linux ARM64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-linux-arm64.run) |
-| Windows x64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-win32-x64-setup.exe) |
-| Windows ARM64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-win32-arm64-setup.exe) |
+| macOS Apple Silicon | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.5/orch-0.1.5-darwin-arm64.command) |
+| macOS Intel | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.5/orch-0.1.5-darwin-x64.command) |
+| Linux x64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.5/orch-0.1.5-linux-x64.run) |
+| Linux ARM64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.5/orch-0.1.5-linux-arm64.run) |
+| Windows x64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.5/orch-0.1.5-win32-x64-setup.exe) |
+| Windows ARM64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.5/orch-0.1.5-win32-arm64-setup.exe) |
 
-[Все файлы релиза](https://github.com/ikhristich/orchestrator-cli/releases/tag/v0.1.4) · [Контрольные суммы](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/SHA256SUMS.txt)
+[Все файлы релиза](https://github.com/ikhristich/orchestrator-cli/releases/tag/v0.1.5) · [Контрольные суммы](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.5/SHA256SUMS.txt)
 
 ## Установка
 
@@ -101,7 +101,7 @@ orch
 ### macOS
 
 ```sh
-sh ~/Downloads/orch-0.1.4-darwin-arm64.command
+sh ~/Downloads/orch-0.1.5-darwin-arm64.command
 ```
 
 Для Intel Mac выберите файл `darwin-x64.command`. В новом терминале:
@@ -114,7 +114,7 @@ orch
 ### Linux
 
 ```sh
-sh ~/Downloads/orch-0.1.4-linux-x64.run
+sh ~/Downloads/orch-0.1.5-linux-x64.run
 ```
 
 Для ARM64 выберите соответствующий файл. На Debian/Ubuntu установщик автоматически проверит Bubblewrap и при необходимости установит системные пакеты и штатный профиль AppArmor. Для этих действий `sudo` может запросить пароль. Глобальные ограничения безопасности не отключаются, существующие профили администратора не перезаписываются.
