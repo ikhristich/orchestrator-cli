@@ -74,18 +74,18 @@ Orchestrator помогает работать над Git-проектами с 
 
 ## Скачать
 
-Текущая версия: **0.1.3**. Для установки нужен только один файл под вашу систему: готовое приложение, Node.js, зависимости и обязательные skills уже внутри.
+Текущая версия: **0.1.4**. Для установки нужен только один файл под вашу систему: готовое приложение, Node.js, зависимости и обязательные skills уже внутри.
 
 | Система | Установщик |
 |---|---|
-| macOS Apple Silicon | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.3/orch-0.1.3-darwin-arm64.command) |
-| macOS Intel | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.3/orch-0.1.3-darwin-x64.command) |
-| Linux x64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.3/orch-0.1.3-linux-x64.run) |
-| Linux ARM64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.3/orch-0.1.3-linux-arm64.run) |
-| Windows x64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.3/orch-0.1.3-win32-x64-setup.exe) |
-| Windows ARM64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.3/orch-0.1.3-win32-arm64-setup.exe) |
+| macOS Apple Silicon | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-darwin-arm64.command) |
+| macOS Intel | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-darwin-x64.command) |
+| Linux x64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-linux-x64.run) |
+| Linux ARM64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-linux-arm64.run) |
+| Windows x64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-win32-x64-setup.exe) |
+| Windows ARM64 | [Скачать](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/orch-0.1.4-win32-arm64-setup.exe) |
 
-[Все файлы релиза](https://github.com/ikhristich/orchestrator-cli/releases/tag/v0.1.3) · [Контрольные суммы](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.3/SHA256SUMS.txt)
+[Все файлы релиза](https://github.com/ikhristich/orchestrator-cli/releases/tag/v0.1.4) · [Контрольные суммы](https://github.com/ikhristich/orchestrator-cli/releases/download/v0.1.4/SHA256SUMS.txt)
 
 ## Установка
 
@@ -101,7 +101,7 @@ orch
 ### macOS
 
 ```sh
-sh ~/Downloads/orch-0.1.3-darwin-arm64.command
+sh ~/Downloads/orch-0.1.4-darwin-arm64.command
 ```
 
 Для Intel Mac выберите файл `darwin-x64.command`. В новом терминале:
@@ -114,7 +114,7 @@ orch
 ### Linux
 
 ```sh
-sh ~/Downloads/orch-0.1.3-linux-x64.run
+sh ~/Downloads/orch-0.1.4-linux-x64.run
 ```
 
 Для ARM64 выберите соответствующий файл. На Debian/Ubuntu установщик автоматически проверит Bubblewrap и при необходимости установит системные пакеты и штатный профиль AppArmor. Для этих действий `sudo` может запросить пароль. Глобальные ограничения безопасности не отключаются, существующие профили администратора не перезаписываются.
@@ -127,14 +127,14 @@ sh ~/Downloads/orch-0.1.3-linux-x64.run
 
 1. Перейдите в Git-проект с хотя бы одним коммитом и выполните `orch`.
 2. `/setup` — настройте проект; `/model all` — выберите CLI и модель.
-3. Для разработки задайте границы кода и команду независимой проверки через `/pipeline`, затем выберите `/workflow`.
+3. Для разработки задайте границы кода и список независимых проверок через `/pipeline`, затем выберите `/workflow`. Проверьте готовность к запуску командой `/preflight`.
 4. Опишите задачу обычным текстом. При ручной автономности подтверждайте роли в диалоге.
 5. `/activity` — ход работы; `/pause` и `/steer уточнение` — остановка и корректировка.
 6. `/read` — документы результата; `/export` — сохранить результат отдельно.
 
 Для начала можно выбрать небольшой сценарий `/workflow analysis`, чтобы проверить подключение CLI и познакомиться с процессом без разработки кода.
 
-Запуск интерфейса сам по себе не вызывает модель. История, настройки и бюджеты разделены по проектам. Экспорт не применяет изменения к исходному проекту автоматически.
+Из другого каталога открыть проект можно командой `orch start --project PATH`. Запуск интерфейса сам по себе не вызывает модель. История, настройки и бюджеты разделены по проектам. Экспорт не применяет изменения к исходному проекту автоматически.
 
 ## Команды для ежедневной работы
 
@@ -142,12 +142,16 @@ sh ~/Downloads/orch-0.1.3-linux-x64.run
 |---|---|
 | `/setup` | Настройки текущего проекта |
 | `/model` / `/model all` | Выбор CLI и модели для роли / всех ролей |
-| `/pipeline` | Границы кода и тестов, команда независимой проверки |
+| `/pipeline` | Границы кода и тестов, список проверок и пробный запуск в изоляции |
+| `/preflight` | Базовый коммит, активные модели и готовность проверок |
+| `/profiles` | Выбор сохранённого профиля на одну задачу |
 | `/mode manual` / `/mode checkpoints` / `/mode auto` | Режим автономности новых задач |
 | `/activity` | Лента сообщений и действий |
 | `/pause` / `/steer уточнение` / `/resume` | Остановка, корректировка и продолжение |
 | `/findings` / `/checks` / `/diff` | Замечания, результаты проверок и изменения |
 | `/read` / `/export` | Просмотр документов и экспорт |
+| `/review` | Статус приёмки и подготовка результата в отдельном Git worktree |
+| `/attention` | Задачи, которые ждут ответа, подтверждения или разбора остановки |
 | `/runs` / `/new` | История проекта и новая задача |
 | `/skills add PATH` | Подключение папки с Markdown skills |
 | `/help` | Список команд и горячих клавиш |
